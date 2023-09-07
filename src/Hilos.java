@@ -16,7 +16,7 @@ class Hilos {
     }
 
     public void crearHilos() {
-        System.out.println(tiempoAhora+" => HILOS: creando hilos");
+        System.out.println("    "+tiempoAhora+" => HILOS: creando hilos");
         for (int i = 1; i <= cantHilos; i++) {
             /*
              * Thread es la clase de Java que crea como tal un hilo
@@ -24,7 +24,7 @@ class Hilos {
              * que realizará cada hilo
              */
             Thread hilo= new Thread(new Hilo(i,matriz.get(i-1),sumaHilos));
-            System.out.println(tiempoAhora+" => HILOS: hilo "+i+" añadido a hilos");
+            System.out.println("    "+tiempoAhora+" => HILOS: hilo "+i+" añadido a hilos");
             hilos.add(hilo);
             
         }
@@ -32,14 +32,13 @@ class Hilos {
 
     public void inicializarTodosLosHilos(){
         for(Thread hilo: hilos){
-     
-            System.out.println(tiempoAhora+" => HILOS: hilo "+hilo.getName()+" inicializado");
             hilo.start();
         }
+        System.out.println("    "+tiempoAhora+" => HILOS: todos los hilos inicializados ; sumaHilos(compartida): "+sumaHilos.getSuma());
     }
 
     public void mostrarSuma() {
-        System.out.println(tiempoAhora+" HILOS: mostrando suma => sumaHilos: "+sumaHilos.getSuma());
+        System.out.println("    "+tiempoAhora+" => HILOS: mostrando suma => sumaHilos: "+sumaHilos.getSuma());
     }
 
     public ArrayList<Thread> getHilos(){

@@ -45,14 +45,14 @@ public class Matriz {
             /* seteando cantidad filas y columnas */
             cantFilas = this.matriz.size();
             cantColumnas = this.matriz.get(0).size();
-            System.out.println(tiempoAhora+" => VALIDO SET: matriz definida correctamente, vàlida");
+            System.out.println("    "+tiempoAhora+" => VALIDO SET: matriz definida correctamente, vàlida");
         } else {
-            System.out.println(tiempoAhora+" => ERROR SET: matriz no valida, por tanto, no se setea en el objeto matriz");
+            System.out.println("    "+tiempoAhora+" => ERROR SET: matriz no valida, por tanto, no se setea en el objeto matriz");
         }
     }
 
     public void mostrarMatriz(ArrayList<ArrayList<Integer>> matriz) {
-        System.out.println(tiempoAhora+" => MOSTRANDO MATRIZ");
+        System.out.println("    "+tiempoAhora+" => MATRIZ: mostrando matriz");
         if (matrizInicializada) {
             for (ArrayList<Integer> fila : matriz) {
                 for (int valor : fila) {
@@ -60,9 +60,9 @@ public class Matriz {
                 }
                 System.out.println();
             }
-            System.out.println(tiempoAhora+" => Cantidad filas: " + cantFilas + " ; cantidad columnas: " + cantColumnas);
+            System.out.println("    "+tiempoAhora+" => Matriz: Cantidad filas: " + cantFilas + " ; cantidad columnas: " + cantColumnas);
         } else {
-            System.out.println(tiempoAhora+" => ERROR MOSTRAR: La matriz no ha sido inicializada correctamente, nada que mostrar");
+            System.out.println("    "+tiempoAhora+" => Matriz => error mostrar: La matriz no ha sido inicializada correctamente, nada que mostrar");
         }
     }
 
@@ -121,5 +121,9 @@ public class Matriz {
 
     public ArrayList<ArrayList<Integer>> getMatriz() {
         return matriz;
+    }
+
+    public boolean esMatrizInicializada() {
+        return matrizInicializada;
     }
 }
