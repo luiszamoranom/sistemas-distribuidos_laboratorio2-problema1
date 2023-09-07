@@ -34,7 +34,7 @@ class Hilos {
         for(Thread hilo: hilos){
             hilo.start();
         }
-        System.out.println("    "+tiempoAhora+" => HILOS: todos los hilos inicializados ; sumaHilos(compartida): "+sumaHilos.getSuma());
+        System.out.println("    "+tiempoAhora+" => HILOS: todos los hilos inicializados ; sumaHilos(compartida): "+sumaHilos.getSuma()+"\n");
     }
 
     public void mostrarSuma() {
