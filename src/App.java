@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) throws Exception {
         ArrayList<ArrayList<Integer>> matrizDePrueba=new ArrayList<>();
-        for(int i=0; i<4; i++){
+        for(int i=0; i<5; i++){
             ArrayList<Integer> filaIterada=new ArrayList<>();
-            for(int j=0; j<10; j++) {
+            for(int j=0; j<5; j++) {
                 filaIterada.add(j);
             }
             matrizDePrueba.add(filaIterada);
@@ -31,9 +31,21 @@ public class App {
         System.out.println("-------------------");
         ArrayList<ArrayList<Integer>> matrizDividida= matriz.dividir();
         int cantidadHilosMatrizDivida= matriz.cantidadDeHilosATener(matrizDividida);
-        System.out.println("cantidad hilos a tener: "+cantidadHilosMatrizDivida);
+        System.out.println("APP: cantidad hilos a tener: "+cantidadHilosMatrizDivida);
         Hilos hilos = new Hilos(cantidadHilosMatrizDivida,matrizDividida);
         hilos.crearHilos();
+        System.out.println("-------------------");
+        hilos.inicializarTodosLosHilos();
+        for (Thread hilo : hilos.getHilos()) {
+            try {
+                hilo.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("APP: voy a buscar la suma de hilos al objeto Hilos");
+        hilos.mostrarSuma();
+
     }
 
 }
