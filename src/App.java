@@ -24,16 +24,16 @@ public class App {
          */
         Matriz matriz=new Matriz();
         matriz.setMatriz(matrizDePrueba);
+        System.out.println("-------------------\nMATRIZ ORIGINAL\n");
         matriz.mostrarMatriz(matriz.getMatriz());
-        System.out.println("---");
+        System.out.println("-------------------\nMATRIZ DIVIDIDA\n");
         matriz.mostrarMatriz(matriz.dividir());
-        System.out.println("---");
+        System.out.println("-------------------");
         ArrayList<ArrayList<Integer>> matrizDividida= matriz.dividir();
         int cantidadHilosMatrizDivida= matriz.cantidadDeHilosATener(matrizDividida);
         System.out.println("cantidad hilos a tener: "+cantidadHilosMatrizDivida);
-        Hilos hilos = new Hilos(cantidadHilosMatrizDivida);
+        Hilos hilos = new Hilos(cantidadHilosMatrizDivida,matrizDividida);
         hilos.crearHilos();
-        
     }
 
 }
